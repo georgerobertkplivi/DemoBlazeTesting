@@ -1,0 +1,28 @@
+test_contactpage.py::TestContactPage::test_contact_page
+--------------------------------------------------------------------
+Last Page: https://www.demoblaze.com/
+  Browser: chrome
+Timestamp: 1619443003  (Unix Timestamp)
+     Date: Monday, 26 April 2021
+     Time: 3:16:43 PM  (W. Europe Daylight Time, UTC+01:00)
+--------------------------------------------------------------------
+Traceback: File "C:\Program Files\Python38\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Program Files\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\Tests\test_contactpage.py", line 6, in test_contact_page
+    self.load_page()
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\Pages\ContactPage.py", line 24, in load_page
+    self.type(self.password,self.password)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\base_case.py", line 534, in type
+    self.update_text(selector, text, by=by, timeout=timeout, retry=retry)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\base_case.py", line 397, in update_text
+    element = self.wait_for_element_visible(
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\base_case.py", line 4081, in wait_for_element_visible
+    return page_actions.wait_for_element_visible(
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\page_actions.py", line 314, in wait_for_element_visible
+    timeout_exception(NoSuchElementException, message)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\page_actions.py", line 132, in timeout_exception
+    raise exception(message)
+Exception: Message: 
+ Element {ymlilgee1991} was not present after 10 seconds!

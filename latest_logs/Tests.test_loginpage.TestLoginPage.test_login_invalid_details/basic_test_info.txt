@@ -1,0 +1,26 @@
+test_loginpage.py::TestLoginPage::test_login_invalid_details
+--------------------------------------------------------------------
+Last Page: https://www.demoblaze.com/
+  Browser: chrome
+Timestamp: 1619443041  (Unix Timestamp)
+     Date: Monday, 26 April 2021
+     Time: 3:17:21 PM  (W. Europe Daylight Time, UTC+01:00)
+--------------------------------------------------------------------
+Traceback: File "C:\Program Files\Python38\lib\unittest\case.py", line 676, in run
+    self._callTestMethod(testMethod)
+  File "C:\Program Files\Python38\lib\unittest\case.py", line 633, in _callTestMethod
+    method()
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\Tests\test_loginpage.py", line 14, in test_login_invalid_details
+    self.login_invalid_details()
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\Pages\LoginPage.py", line 45, in login_invalid_details
+    self.assert_text("Welcome itsforme60@gmail.com","#nameofuser", timeout=15)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\base_case.py", line 6088, in assert_text
+    self.wait_for_text_visible(text, selector, by=by, timeout=timeout)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\base_case.py", line 6025, in wait_for_text_visible
+    return page_actions.wait_for_text_visible(
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\page_actions.py", line 379, in wait_for_text_visible
+    timeout_exception(ElementNotVisibleException, message)
+  File "C:\Users\mm195\PycharmProjects\DemoBlazeTesting\venv\lib\site-packages\seleniumbase\fixtures\page_actions.py", line 132, in timeout_exception
+    raise exception(message)
+Exception: Message: 
+ Expected text {Welcome itsforme60@gmail.com} for {#nameofuser} was not visible after 15 seconds!

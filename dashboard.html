@@ -1,0 +1,186 @@
+<head><meta charset="utf-8" /><meta property="og:image" content="https://seleniumbase.io/img/dash_pie_2.png"><link rel="shortcut icon" href="https://seleniumbase.io/img/dash_pie_2.png"><title>Dashboard</title><link rel="stylesheet" href="https://seleniumbase.io/cdn/css/pytest_style.css"></head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://code.highcharts.com/9.0.1/highcharts.js"></script>
+            <script src="https://code.highcharts.com/9.0.1/modules/exporting.js"></script>
+            <script src="https://code.highcharts.com/9.0.1/modules/export-data.js"></script>
+            <script src="https://code.highcharts.com/9.0.1/modules/accessibility.js"></script>
+            
+            <style>
+            .highcharts-figure, .highcharts-data-table table {
+                min-width: 320px;
+                max-width: 660px;
+                margin: 1em auto;
+            }
+            .highcharts-data-table table {
+                font-family: Verdana, sans-serif;
+                border-collapse: collapse;
+                border: 1px solid #EBEBEB;
+                margin: 10px auto;
+                text-align: center;
+                width: 100%;
+                max-width: 500px;
+            }
+            .highcharts-data-table caption {
+                padding: 1em 0;
+                font-size: 1.2em;
+                color: #555;
+            }
+            .highcharts-data-table th {
+                font-weight: 600;
+                padding: 0.5em;
+            }
+            .highcharts-data-table td, .highcharts-data-table th,
+            .highcharts-data-table caption {
+                padding: 0.5em;
+            }
+            .highcharts-data-table thead tr,
+            .highcharts-data-table tr:nth-child(even) {
+                background: #f8f8f8;
+            }
+            .highcharts-data-table tr:hover {
+                background: #f1f7ff;
+            }
+            </style>
+            
+            <figure class="highcharts-figure">
+                <div id="chartcontainer1"></div>
+                <p class="highcharts-description"></p>
+            </figure>
+            
+            <script>
+            // Build the chart
+            Highcharts.chart('chartcontainer1', {
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'SeleniumBase Test Results Dashboard'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                labels: {
+                    useHTML: true,
+                    style: {
+                        fontSize: '14px',
+                    },
+                },
+            categories: ['Passed','Untested','Skipped','Failed',], crosshair: false},
+            yAxis: {
+                
+                title: {
+                    text: 'Values',
+                    style: {
+                        fontSize: '14px'
+                    }
+                },
+                labels: {
+                    useHTML: true,
+                    style: {
+                        fontSize: '14px'
+                    }
+                }
+            },
+            chart: {
+                renderTo: 'statusChart',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            
+            tooltip: {
+                enabled: true,
+                useHTML: true,
+                style: {
+                    padding: '6px',
+                    fontSize: '14px'
+                },
+                backgroundColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, 'rgba(255, 255, 255, 0.78)'],
+                        [0.5, 'rgba(235, 235, 235, 0.76)'],
+                        [1, 'rgba(244, 252, 255, 0.74)']
+                    ]
+                },
+                hideDelay: 40,
+                pointFormat: '<b>{point.y}</b><br /><b>{point.percentage:.1f}%</b>'
+            },
+            
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                series: {
+                    states: {
+                        inactive: {
+                            opacity: 0.85
+                        }
+                    }
+                },
+                pie: {
+                    size: "95%",
+                    allowPointSelect: true,
+                    animation: false,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function() {
+                          if (this.y > 0) {
+                            return this.point.name + ': ' + this.point.y
+                          }
+                        }
+                    },
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            
+            series: [{
+            name: 'Series 1',
+            colorByPoint: true,
+            data: [
+            
+            {
+            name: 'Passed',
+            y: 1,
+            color: '#84d474'
+            },
+            
+            {
+            name: 'Untested',
+            y: 0,
+            color: '#eaeaea'
+            },
+            
+            {
+            name: 'Skipped',
+            y: 0,
+            color: '#efd8b4'
+            },
+            
+            {
+            name: 'Failed',
+            y: 2,
+            color: '#f17476'
+            },
+            
+            ]
+                }]
+            });
+            </script>
+            <div></div><table border="1px solid #e6e6e6;" width="100%;" padding: 5px; font-size="12px;" text-align="left;" id="results-table"><thead id="results-table-head"><tr><th col="result">Result</th><th col="name">Test</th><th col="duration">Duration</th><th col="links">Links</th></tr></thead><tbody class="failed results-table-row"><tr><td class="col-result">Failed</td><td>test_contactpage.py::TestContactPage::test_contact_page</td><td>16.231</td><td><a href="latest_logs/">latest_logs/</a></td></tr></tbody><tbody class="failed results-table-row"><tr><td class="col-result">Failed</td><td>test_loginpage.py::TestLoginPage::test_login_invalid_details</td><td>22.24</td><td><a href="latest_logs/">latest_logs/</a></td></tr></tbody><tbody class="passed results-table-row"><tr><td class="col-result">Passed</td><td>test_loginpage.py::TestLoginPage::test_login_valid_details</td><td>9.493</td><td></td></tr></tbody></table><br /><b>Last updated:</b> Monday, 26 April 2021 at 3:17:45 PM  (W. Europe Daylight Time, UTC+01:00)<p></p><div><b>Status:</b> Test Run Complete: <b>2 tests failed!</b> --- (<b><a href="latest_logs/">See latest logs for details</a></b>)</div><p></p><p><div>Generated by: <b><a href="https://seleniumbase.io/">SeleniumBase</a></b></div></p><p></p><script type="text/javascript" src="https://seleniumbase.io/cdn/js/live.js#html"></script>
+<!--Test Run Complete-->
